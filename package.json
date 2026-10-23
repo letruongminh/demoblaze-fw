@@ -1,0 +1,30 @@
+{
+  "name": "demoblaze-pw",
+  "version": "1.0.0",
+  "description": "BDD (Gherkin) end-to-end automation for the DemoBlaze store built with Playwright, playwright-bdd and the Page Object Model.",
+  "private": true,
+  "scripts": {
+    "test": "bddgen && playwright test",
+    "test:headed": "bddgen && playwright test --headed",
+    "test:ui": "bddgen && playwright test --ui",
+    "test:smoke": "bddgen && playwright test --grep @smoke",
+    "test:negative": "bddgen && playwright test --grep @negative",
+    "gen": "bddgen",
+    "report": "playwright show-report"
+  },
+  "keywords": [
+    "playwright",
+    "bdd",
+    "gherkin",
+    "cucumber",
+    "page-object-model",
+    "demoblaze"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.5",
+    "playwright-bdd": "^9.2.1",
+    "typescript": "^7.0.2"
+  }
+}

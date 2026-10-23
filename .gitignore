@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# Generated
+.features-gen/
+
+# Auth & secrets
+.auth/
+.env
+.env.local
+*.local
+
+# OS
+.DS_Store
