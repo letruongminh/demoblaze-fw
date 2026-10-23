@@ -1,6 +1,5 @@
 import { APIRequestContext, request } from '@playwright/test';
-
-const API_URL = 'https://api.demoblaze.com';
+import { config } from '../config/env';
 
 export function encodePassword(raw: string): string {
   const binary = encodeURIComponent(raw).replace(/%([0-9A-F]{2})/g, (_match, hex) =>
@@ -13,7 +12,7 @@ export class DemoblazeApi {
   private constructor(private readonly ctx: APIRequestContext) {}
 
   static async create(): Promise<DemoblazeApi> {
-    const ctx = await request.newContext({ baseURL: API_URL });
+    const ctx = await request.newContext({ baseURL: config.apiURL });
     return new DemoblazeApi(ctx);
   }
 

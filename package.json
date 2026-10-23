@@ -1,16 +1,25 @@
 {
   "name": "demoblaze-pw",
   "version": "1.0.0",
-  "description": "BDD (Gherkin) end-to-end automation for the DemoBlaze store built with Playwright, playwright-bdd and the Page Object Model.",
+  "description": "UI, API and performance test automation for the DemoBlaze store built with Playwright, playwright-bdd, the Page Object Model and Allure reporting.",
   "private": true,
   "scripts": {
     "test": "bddgen && playwright test",
     "test:headed": "bddgen && playwright test --headed",
-    "test:ui": "bddgen && playwright test --ui",
+    "test:ui": "bddgen && playwright test --grep @ui",
+    "test:api": "bddgen && playwright test --grep @api",
+    "test:performance": "bddgen && playwright test --grep @performance",
+    "test:regression": "bddgen && playwright test --grep @regression",
     "test:smoke": "bddgen && playwright test --grep @smoke",
     "test:negative": "bddgen && playwright test --grep @negative",
+    "open": "bddgen && playwright test --ui",
     "gen": "bddgen",
-    "report": "playwright show-report"
+    "typecheck": "tsc --noEmit",
+    "report": "playwright show-report",
+    "report:allure": "allure serve allure-results",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report",
+    "allure:clean": "node -e \"const fs=require('fs');for(const d of ['allure-results','allure-report'])fs.rmSync(d,{recursive:true,force:true})\""
   },
   "keywords": [
     "playwright",
@@ -18,12 +27,18 @@
     "gherkin",
     "cucumber",
     "page-object-model",
+    "allure",
+    "api-testing",
+    "performance",
     "demoblaze"
   ],
   "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.64.1",
     "@types/node": "^26.6.5",
+    "allure-commandline": "^2.46.1",
+    "allure-playwright": "^3.14.0",
+    "dotenv": "^18.0.9",
     "playwright-bdd": "^9.2.1",
     "typescript": "^7.0.2"
   }
