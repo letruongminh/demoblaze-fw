@@ -1,0 +1,16 @@
+
+[performance] login -> add to cart -> place order
+Samples: 3
+
+| Step | Median | p95 | Min | Max | Budget | Verdict |
+| --- | ---: | ---: | ---: | ---: | ---: | :---: |
+| login | 1133 ms | 1195 ms | 1097 ms | 1195 ms | 6000 ms | PASS |
+| addToCart | 512 ms | 553 ms | 499 ms | 553 ms | 6000 ms | PASS |
+| placeOrder | 911 ms | 1207 ms | 865 ms | 1207 ms | 8000 ms | PASS |
+| total | 2571 ms | 2840 ms | 2561 ms | 2840 ms | 18000 ms | PASS |
+
+Per-iteration detail:
+- iteration 1: login 1133 ms, addToCart 499 ms, placeOrder 1207 ms, total 2840 ms
+- iteration 2: login 1097 ms, addToCart 553 ms, placeOrder 911 ms, total 2561 ms
+- iteration 3: login 1195 ms, addToCart 512 ms, placeOrder 865 ms, total 2571 ms
+
